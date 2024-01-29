@@ -1330,6 +1330,10 @@ input:checked + .toggle-bg {
   width: 30rem;
 }
 
+.w-\[35rem\] {
+  width: 35rem;
+}
+
 .max-w-screen-xl {
   max-width: 1280px;
 }
