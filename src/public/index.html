@@ -12,7 +12,10 @@
     <!-- Font Link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Boxicon Link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -66,22 +69,24 @@
     <!-- END NAVBAR -->
 
     <!-- FIRST -->
-    <div class="w-full overflow-hidden relative justify-center items-center flex flex-col mb-16 group">
-        <img class="w-full relative"
-            src="https://static.vitra.com/media-resized/p53ub78I2Wo4U1hfmGhBDZi-shAyciJyRt0Adr180OA/fill/1440/0/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzc3MjUwMTcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83ODMzMzcxOS5qcGc.jpg"
-            alt="">
+    <div class="relative justify-center lg:max-h-[75vh] items-center flex flex-col mb-16 group">
+        <div class="overflow-hidden flex lg:h-full w-full justify-center items-center">
+            <img class="w-full relative max-h-full"
+                src="https://static.vitra.com/media-resized/p53ub78I2Wo4U1hfmGhBDZi-shAyciJyRt0Adr180OA/fill/1440/0/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzc3MjUwMTcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83ODMzMzcxOS5qcGc.jpg"
+                alt="">
+        </div>
         <div
             class="lg:bg-gray-800 lg:hover:bg-opacity-40 lg:bg-opacity-0 duration-700 lg:absolute h-full w-full justify-center flex items-center flex-col">
             <h1
-                class="font-jost lg:text-5xl text-4xl text-center lg:text-white text-gray-800 mb-7 mt-6 lg:translate-y-16 lg:group-hover:translate-y-0 duration-700">
+                class="font-jost lg:text-5xl font-light text-center lg:text-white text-gray-800 mb-7 mt-6 lg:translate-y-16 lg:group-hover:translate-y-0 duration-700">
                 Inspirations for homes</h1>
-            <div class="lg:w-[40rem] flex-col items-center flex justify-center w-full px-5 duration-700">
+            <div class="lg:w-[45rem] flex-col items-center flex justify-center w-full px-5 duration-700">
                 <p
                     class="mb-10 lg:translate-y-20 lg:group-hover:translate-y-0 font-jost lg:text-xl text-center lg:text-opacity-0 lg:group-hover:text-opacity-100 duration-700 lg:text-white text-gray-800">
                     This winter, we are
                     travelling to London to take a look behind the doors of two homes</p>
                 <button
-                    class="font-jost lg:translate-y-10 lg:group-hover:translate-y-0 text-center py-4 lg:w-60 w-full lg:text-gray-800 text-white bg-gray-800 lg:bg-white hover:bg-gray-500 lg:hover:bg-gray-300 lg:opacity-0 lg:group-hover:opacity-100 duration-700">DISCOVER
+                    class="font-jost lg:translate-y-10 lg:group-hover:translate-y-0 text-center py-3 lg:w-60 w-full lg:text-gray-800 text-white bg-gray-800 lg:bg-white hover:bg-gray-500 lg:hover:bg-gray-300 lg:opacity-0 lg:group-hover:opacity-100 duration-700">DISCOVER
                     MORE</button>
             </div>
         </div>
@@ -89,41 +94,254 @@
     <!-- END FIRST -->
 
     <!-- SECOND -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 lg:px-2">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 lg:px-2 mb-16">
         <div class="group cursor-pointer">
-            <div class="overflow-hidden group-hover:">
-                <img src="https://static.vitra.com/media-resized/oha12tfVPncfTd3kOrGnXXBldxUfCxprYknY9yso_7A/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3Njcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjE0Mi5qcGc.jpg"
+            <div class="overflow-hidden group/item">
+                <img class="group-hover/item:scale-105 duration-500"
+                    src="https://static.vitra.com/media-resized/oha12tfVPncfTd3kOrGnXXBldxUfCxprYknY9yso_7A/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3Njcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjE0Mi5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-2 group-hover:text-pink-500 duration-150 text-gray-900">Find the suitable Lounge Chair for your needs</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-pink-500 duration-150 text-gray-400">Launge Chair Finder</h4>
+            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-gray-900">
+                Find the
+                suitable Lounge Chair for your needs</h3>
+            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-gray-400">Launge
+                Chair
+                Finder</h4>
         </div>
         <div class="group cursor-pointer">
-            <div class="overflow-hidden group-hover:">
-                <img src="https://static.vitra.com/media-resized/oha12tfVPncfTd3kOrGnXXBldxUfCxprYknY9yso_7A/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3Njcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjE0Mi5qcGc.jpg"
+            <div class="overflow-hidden group/item">
+                <img class="group-hover/item:scale-105 duration-500"
+                    src="https://static.vitra.com/media-resized/Oaa9o0UNMeiQt00VsvEfSCafj4lNJIUiJ-vvdFR0hmU/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0LzgzMzMzNzEvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83ODA1NDc5NC5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-2 group-hover:text-pink-500 duration-150 text-gray-900">Find the suitable Lounge Chair for your needs</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-pink-500 duration-150 text-gray-400">Launge Chair Finder</h4>
+            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-gray-900">
+                Eames classics
+                in new colours and materials</h3>
+            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-gray-400">Eames
+                Special
+                Collection 2023</h4>
         </div>
         <div class="group cursor-pointer">
-            <div class="overflow-hidden group-hover:">
-                <img src="https://static.vitra.com/media-resized/oha12tfVPncfTd3kOrGnXXBldxUfCxprYknY9yso_7A/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3Njcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjE0Mi5qcGc.jpg"
+            <div class="overflow-hidden group/item">
+                <img class="group-hover/item:scale-105 duration-500"
+                    src="https://static.vitra.com/media-resized/lEgQdfu6Atx_12SpdLCB9aQIak9cHQ2lenF4GHgPboA/fill/1440/811/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg3NjU1MTAvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjAxMjA2MC5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-2 group-hover:text-pink-500 duration-150 text-gray-900">Find the suitable Lounge Chair for your needs</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-pink-500 duration-150 text-gray-400">Launge Chair Finder</h4>
+            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-gray-900">A
+                studio visit
+                with Tsuyoshi Tane</h3>
+            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-gray-400">Magazine
+            </h4>
         </div>
         <div class="group cursor-pointer">
-            <div class="overflow-hidden group-hover:">
-                <img src="https://static.vitra.com/media-resized/oha12tfVPncfTd3kOrGnXXBldxUfCxprYknY9yso_7A/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3Njcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjE0Mi5qcGc.jpg"
+            <div class="overflow-hidden group/item">
+                <img class="group-hover/item:scale-105 duration-500"
+                    src="https://static.vitra.com/media-resized/hNGm_-XhudmSjrlbGt_HUq_eJGR19aEgJo5qXgy6BHQ/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3NjYvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjA3Mi5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-2 group-hover:text-pink-500 duration-150 text-gray-900">Find the suitable Lounge Chair for your needs</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-pink-500 duration-150 text-gray-400">Launge Chair Finder</h4>
+            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-gray-900">
+                Timeless
+                Elegance with Structual Ingenuity</h3>
+            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-gray-400">Chaise
+                Tout Bois
+            </h4>
         </div>
     </div>
     <!-- END SECOND -->
+
+    <!-- THIRD -->
+    <div class="overflow-hidden h-96 mb-16 relative flex justify-center items-center">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <img class="object-cover object-center h-full w-full"
+                src="https://static.vitra.com/media-resized/sXryuDIuInDKN0F55PNVP-aTtfwsA6MenMzxBrXfy44/fill/1440/0/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg0MjM5NTUvc3RvcmFnZS92X3BhcmFsbGF4XzE5MjB4MTA4MC83ODExNTkxNS5qcGc.jpg"
+                alt="">
+        </div>
+        <div class="absolute flex flex-col justify-center items-center">
+            <h1 class="font-jost xl:text-5xl text-4xl font-light text-center text-white mb-4">Prismatic Table</h1>
+            <button
+                class="font-jost text-center lg:hover:bg-white hover:text-gray-900 text-white py-3 mt-4 xl:w-60 w-40 border-y-2 border-white duration-100">DISCOVER
+                NOW</button>
+        </div>
+    </div>
+    <!-- END THIRD -->
+
+    <!-- FOURTH -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 lg:px-2 mb-16">
+        <div class="group cursor-pointer">
+            <div class="overflow-hidden group/item">
+                <img class="group-hover/item:scale-105 duration-500"
+                    src="https://static.vitra.com/media-resized/JWAc_xcTlNucPGjsRFWSsRDWmx-2Uf9PPsc1LFYTeX0/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg4MTIyNDAvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjI5MTY5OC5qcGc.jpg"
+                    alt="">
+            </div>
+            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-gray-900">
+                Adaptable design for dynamic workspaces</h3>
+            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-gray-400">
+                Comma</h4>
+        </div>
+        <div class="group cursor-pointer">
+            <div class="overflow-hidden group/item">
+                <img class="group-hover/item:scale-105 duration-500"
+                    src="https://static.vitra.com/media-resized/skNmTV6rZVRRLraTAB9eNNKC3LiIVDBfIJvoAVu_1gE/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg3NzA3Njkvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjA3NDQ0OC5qcGc.jpg"
+                    alt="">
+            </div>
+            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-gray-900">
+                The platform for communication and teamwork</h3>
+            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-gray-400">
+                Joyn 2</h4>
+        </div>
+    </div>
+    <!-- END FOURTH -->
+
+    <!-- FIFTH -->
+    <div class="flex bg-gray-100">
+        <div class="flex lg:flex-row flex-col w-full justify-center flex-wrap my-20">
+            <div class="max-w-[580px] lg:w-1/2 w-full mb-4 ml-3 lg:ml-0">
+                <h2 class="font-jost text-2xl ml-2">Vitra Newsletter</h2>
+                <h3 class="font-jost text-lg ml-2">New products, limited editions, event invitations and much more.</h3>
+            </div>
+            <div class="max-w-[580px] lg:w-1/2 w-full flex ml-3 lg:ml-0">
+                <button class="flex items-center mr-4 group">
+                    <div class="bg-gray-900 h-12 w-12 rounded-full justify-center flex items-center mr-2"><i
+                            class='bx bx-home text-white text-xl'></i></div>
+                    <h3 class="font-jost text-xl group-hover:text-rose-400">Private customers</h3>
+                    <span
+                        class="font-jost font-bold text-sm ml-3 border-2 border-gray-400 rounded-full w-5 h-5 flex items-center justify-center text-gray-400">i</span>
+                </button>
+                <button class="flex items-center mr-4 group">
+                    <div class="bg-gray-900 h-12 w-12 rounded-full justify-center flex items-center mr-2"><i
+                            class='bx bx-buildings text-white text-xl'></i></div>
+                    <h3 class="font-jost text-xl group-hover:text-rose-400">Business customers</h3>
+                    <span
+                        class="font-jost font-bold text-sm ml-3 border-2 border-gray-400 rounded-full w-5 h-5 flex items-center justify-center text-gray-400">i</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- END FIFTH -->
+
+    <!-- FOOTER -->
+    <div class="lg:grid-cols-3 lg:flex lg:justify-around mb-16">
+        <div class="lg:flex-col">
+            <div class="flex-col text-center lg:w-72 lg:mt-10 flex group">
+                <h4 class="font-jost md:font-bold w-full py-3 border-b border-gray-900">Products</h4>
+                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">All
+                        Products</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">New
+                        Products</button>
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Bestsellers</button>
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Designer</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Manufacturer
+                        warranty</button>
+                </div>
+            </div>
+            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
+                <h4 class="font-jost md:font-bold w-full py-3 border-b border-gray-900">Professionals</h4>
+                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Downloads</button>
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Projects</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Our
+                        Clients</button>
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Tools</button>
+                </div>
+            </div>
+        </div>
+        <div class="lg:flex-col">
+            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
+                <h4 class="font-jost md:font-bold w-full py-3 border-b border-gray-900">About Vitra</h4>
+                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Facts</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Vitra
+                        Campus</button>
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Sustainability</button>
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Magazine</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Jobs &
+                        Careers</button>
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Press</button>
+                </div>
+            </div>
+            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
+                <h4 class="font-jost md:font-bold w-full py-3 border-b border-gray-900">Legal</h4>
+                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Distribution
+                        rights</button>
+                    <button
+                        class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Imprint</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Privacy
+                        Policy</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Website
+                        Terms of Use</button>
+                </div>
+            </div>
+        </div>
+        <div class="lg:flex-col">
+            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
+                <h4 class="font-jost md:font-bold w-full py-3 border-b border-gray-900">Contact</h4>
+                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Contact
+                        Vitra</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Find
+                        Vitra</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Vitra
+                        Companies</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Subscribe to
+                        the newsletter</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Vitra Circle
+                        Stories</button>
+                </div>
+            </div>
+            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
+                <h4 class="font-jost md:font-bold w-full py-3 border-b border-gray-900">Online Shop</h4>
+                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Shopping
+                        Cart</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Wish
+                        list</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Payment
+                        methods</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">Shipping
+                        conditions</button>
+                    <button class="py-3 border-t-2 border-gray-200 w-full hover:text-rose-400 duration-100">General
+                        Terms and Conditions of Sale</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+
+    <!-- SECOND FOOTER -->
+    <div class="flex justify-center items-center flex-col">
+        <div class="flex flex-wrap justify-center mb-10">
+            <div>
+                <button class="w-16 h-10 text-4xl text-gray-900 hover:text-rose-400 cursor-pointer"><i
+                        class='bx bxl-youtube'></i></button>
+                <button class="w-16 h-10 text-4xl text-gray-900 hover:text-rose-400 cursor-pointer"><i
+                        class='bx bxl-twitter'></i></button>
+                <button class="w-16 h-10 text-4xl text-gray-900 hover:text-rose-400 cursor-pointer"><i
+                        class='bx bxl-facebook-square'></i></button>
+            </div>
+            <div>
+                <button class="w-16 h-10 text-4xl text-gray-900 hover:text-rose-400 cursor-pointer"><i
+                        class='bx bxl-pinterest'></i></button>
+                <button class="w-16 h-10 text-4xl text-gray-900 hover:text-rose-400 cursor-pointer"><i
+                        class='bx bxl-instagram'></i></button>
+                <button class="w-16 h-10 text-4xl text-gray-900 hover:text-rose-400 cursor-pointer"><i
+                        class='bx bxl-linkedin-square'></i></button>
+            </div>
+        </div>
+        <h6 class="font-jost text-sm">COPYRIGHT &copy 2024 VITRA INTERNATIONAL AG.</h6>
+    </div>
+    <!-- END SECOND FOOTER -->
+
 
     <!-- SCRIPT -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
