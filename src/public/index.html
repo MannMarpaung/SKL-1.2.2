@@ -17,17 +17,110 @@
 
     <!-- Boxicon Link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        @media screen and (max-width: 1024px) {
+            .show {
+                display: flex;
+            }
+
+            .mendokusai {
+                display: block;
+            }
+        }
+        @media screen and (max-width: 639px) {
+            .tauahmales {
+                margin-top: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- NAVBAR -->
     <nav>
-        <div class="h-10 bg-white">
-
+        <div class="lg:h-8 h-20 bg-white justify-between items-center lg:justify-end lg:items-end flex">
+            <button class="font-jost text-zinc-400 hover:text-rose-400 mx-3 duration-100 hidden lg:flex items-center">
+                <i class='bx bx-map text-lg mr-1'></i>Find Vitra
+            </button>
+            <button class="font-jost text-zinc-400 hover:text-rose-400 mx-3 duration-100 hidden lg:flex">
+                Contact
+            </button>
+            <div class="w-28 flex lg:hidden">
+                <a href="#" id="navbarToggle" class="text-3xl text-zinc-800 ml-2"><i
+                        class='bx bx-menu-alt-left'></i></a>
+            </div>
+            <a href="#" class="flex lg:hidden">
+                <img class="w-24"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_vitra_black.svg/591px-Logo_vitra_black.svg.png?20141205055208"
+                    alt="">
+            </a>
+            <div class="w-28 flex lg:hidden">
+                <button class="text-2xl mx-3 text-zinc-800 hover:text-rose-400 duration-100">
+                    <i class='bx bx-search'></i>
+                </button>
+                <button class="text-2xl mx-3 text-zinc-800 hover:text-rose-400 duration-100">
+                    <i class='bx bx-cart'></i>
+                </button>
+            </div>
         </div>
-        <div class="h-12 bg-white">
-
+        <div id="navbarLinks" class="lg:h-14 bg-white lg:flex lg:justify-between hidden show flex-col lg:flex-row">
+            <div class="flex lg:items-end lg:mb-3 mb-12 lg:ml-2">
+                <a href="#" class="mb-1 hidden lg:flex">
+                    <img class="w-24 mr-2"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_vitra_black.svg/591px-Logo_vitra_black.svg.png?20141205055208"
+                        alt="">
+                </a>
+                <div
+                    class="text-zinc-800 font-jost xl:text-lg lg:text-base text-xl flex lg:items-end lg:flex-row flex-col w-full lg:w-auto">
+                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                        Products<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
+                    </button>
+                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                        Inspirations<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
+                    </button>
+                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                        Magazine<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
+                    </button>
+                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                        Vitra Campus<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
+                    </button>
+                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                        About Vitra<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
+                    </button>
+                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                        Professionals<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex lg:items-end lg:mb-3 mb-10 flex-col items-start lg:flex-row">
+                <button class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 lg:flex hidden">
+                    <i class='bx bx-search'></i>
+                </button>
+                <button class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2">
+                    <i class='bx bx-user lg:mr-0 mr-4'></i><span class="font-jost text-xl flex lg:hidden">Account</span>
+                </button>
+                <button class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 lg:flex hidden">
+                    <i class='bx bx-cart'></i>
+                </button>
+                <button
+                    class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
+                    <i class='bx bx-heart mr-4'></i><span class="font-jost text-xl flex lg:hidden">Wishlist</span>
+                </button>
+                <button class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2">
+                    <i class='bx bx-flag lg:mr-0 mr-4'></i><span class="font-jost text-xl flex lg:hidden">United
+                        States</span>
+                </button>
+                <button
+                    class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
+                    <i class='bx bx-map mr-4'></i><span class="font-jost text-xl flex lg:hidden">Find Vitra</span>
+                </button>
+                <button
+                    class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
+                    <i class='bx bx-phone-call mr-4'></i><span class="font-jost text-xl flex lg:hidden">Contact</span>
+                </button>
+            </div>
         </div>
     </nav>
     <!-- END NAVBAR -->
@@ -36,19 +129,19 @@
     <div id="first" class="relative justify-center lg:max-h-[75vh] items-center flex flex-col mb-16 group">
         <div class="overflow-hidden flex lg:h-full w-full justify-center items-center">
             <img class="w-full relative max-h-full"
-                src="https://static.vitra.com/media-resized/p53ub78I2Wo4U1hfmGhBDZi-shAyciJyRt0Adr180OA/fill/1440/0/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzc3MjUwMTcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83ODMzMzcxOS5qcGc.jpg"
+                src="https://static.vitra.com/media-resized/vre2fWzkgEsDWV-_9xnhT_d1LRJKAz2xls4BjzOIv6Y/fill/1440/0/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0LzgzNzQ4MDIvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83ODA4MTAzMC5qcGc.jpg"
                 alt="">
         </div>
         <div
             class="lg:bg-zinc-900 lg:hover:bg-opacity-40 lg:bg-opacity-0 duration-700 lg:absolute h-full w-full justify-center flex items-center flex-col">
             <h1
                 class="font-jost lg:text-5xl text-4xl font-light text-center lg:text-white text-zinc-900 mb-7 mt-6 lg:translate-y-16 lg:group-hover:translate-y-0 duration-700">
-                Inspirations for homes</h1>
+                ACX</h1>
             <div class="lg:w-[45rem] flex-col items-center flex justify-center w-full px-5 duration-700">
                 <p
                     class="mb-10 lg:translate-y-20 lg:group-hover:translate-y-0 font-jost lg:text-xl text-center lg:text-opacity-0 lg:group-hover:text-opacity-100 duration-700 lg:text-white text-zinc-900">
-                    This winter, we are
-                    travelling to London to take a look behind the doors of two homes</p>
+                    ACX is the tenthoffice swivel chair that Vitra has developed in collaboration with Italian designer
+                    Antonio Citterio</p>
                 <button
                     class="font-jost lg:translate-y-10 lg:group-hover:translate-y-0 text-center py-3 lg:w-60 w-full lg:text-zinc-900 text-white bg-zinc-900 lg:bg-white hover:bg-zinc-500 lg:hover:bg-zinc-300 lg:opacity-0 lg:group-hover:opacity-100 duration-700">DISCOVER
                     MORE</button>
@@ -59,19 +152,6 @@
 
     <!-- SECOND -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 lg:px-2 mb-16">
-        <div class="group cursor-pointer">
-            <div class="overflow-hidden group/item">
-                <img class="group-hover/item:scale-105 duration-500"
-                    src="https://static.vitra.com/media-resized/oha12tfVPncfTd3kOrGnXXBldxUfCxprYknY9yso_7A/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3Njcvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjE0Mi5qcGc.jpg"
-                    alt="">
-            </div>
-            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
-                Find the
-                suitable Lounge Chair for your needs</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">Launge
-                Chair
-                Finder</h4>
-        </div>
         <div class="group cursor-pointer">
             <div class="overflow-hidden group/item">
                 <img class="group-hover/item:scale-105 duration-500"
@@ -88,6 +168,19 @@
         <div class="group cursor-pointer">
             <div class="overflow-hidden group/item">
                 <img class="group-hover/item:scale-105 duration-500"
+                    src="https://static.vitra.com/media-resized/hNGm_-XhudmSjrlbGt_HUq_eJGR19aEgJo5qXgy6BHQ/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3NjYvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjA3Mi5qcGc.jpg"
+                    alt="">
+            </div>
+            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
+                Timeless
+                Elegance with Structual Ingenuity</h3>
+            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">Chaise
+                Tout Bois
+            </h4>
+        </div>
+        <div class="group cursor-pointer">
+            <div class="overflow-hidden group/item">
+                <img class="group-hover/item:scale-105 duration-500"
                     src="https://static.vitra.com/media-resized/lEgQdfu6Atx_12SpdLCB9aQIak9cHQ2lenF4GHgPboA/fill/1440/811/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg3NjU1MTAvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjAxMjA2MC5qcGc.jpg"
                     alt="">
             </div>
@@ -100,14 +193,12 @@
         <div class="group cursor-pointer">
             <div class="overflow-hidden group/item">
                 <img class="group-hover/item:scale-105 duration-500"
-                    src="https://static.vitra.com/media-resized/hNGm_-XhudmSjrlbGt_HUq_eJGR19aEgJo5qXgy6BHQ/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3NjYvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjA3Mi5qcGc.jpg"
+                    src="https://static.vitra.com/media-resized/VM6juw-VDJyX1RiYY4PdsISTuXUDK-d4PiZfUYhbQI4/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg4Mzk4NzUvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjM0MzQyOC5qcGc.jpg"
                     alt="">
             </div>
             <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
-                Timeless
-                Elegance with Structual Ingenuity</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">Chaise
-                Tout Bois
+                Adaptable design for dynamic wokspaces</h3>
+            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">Comma
             </h4>
         </div>
     </div>
@@ -134,24 +225,25 @@
         <div class="group cursor-pointer">
             <div class="overflow-hidden group/item">
                 <img class="group-hover/item:scale-105 duration-500"
-                    src="https://static.vitra.com/media-resized/JWAc_xcTlNucPGjsRFWSsRDWmx-2Uf9PPsc1LFYTeX0/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg4MTIyNDAvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjI5MTY5OC5qcGc.jpg"
+                    src="https://static.vitra.com/media-resized/nc0q2DmA1MuGiANoqnVG7f9-SJNzUJJmGz95ZePyLfs/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzc0MTcwNTQvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83NzM1NTIwNC5qcGc.jpg"
                     alt="">
             </div>
             <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
-                Adaptable design for dynamic workspaces</h3>
+                No matter which industry and no matter where in the world
+            </h3>
             <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">
-                Comma</h4>
+                Our Client </h4>
         </div>
         <div class="group cursor-pointer">
             <div class="overflow-hidden group/item">
                 <img class="group-hover/item:scale-105 duration-500"
-                    src="https://static.vitra.com/media-resized/skNmTV6rZVRRLraTAB9eNNKC3LiIVDBfIJvoAVu_1gE/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg3NzA3Njkvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjA3NDQ0OC5qcGc.jpg"
+                    src="https://static.vitra.com/media-resized/KIVcbMcDG_wkcTQw0j73hsr2OWQEpR2F0MeyknXJHuU/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg4NDM0MzAvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjM1MTg0My5qcGc.jpg"
                     alt="">
             </div>
             <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
-                The platform for communication and teamwork</h3>
+                A case for classics</h3>
             <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">
-                Joyn 2</h4>
+                Professionals</h4>
         </div>
     </div>
     <!-- END FOURTH -->
@@ -159,24 +251,25 @@
     <!-- FIFTH -->
     <div class="flex bg-zinc-100">
         <div class="flex lg:flex-row flex-col w-full justify-center flex-wrap my-20">
-            <div class="max-w-[580px] lg:w-1/2 w-full mb-4 ml-3 lg:ml-0">
+            <div class="max-sm:max-w-[320px] sm:max-w-[580px] lg:w-1/2 w-full mb-4 ml-3 lg:ml-0">
                 <h2 class="font-jost text-2xl ml-2 text-zinc-900">Vitra Newsletter</h2>
-                <h3 class="font-jost text-lg ml-2 text-zinc-900">New products, limited editions, event invitations and much more.</h3>
+                <h3 class="font-jost text-lg ml-2 text-zinc-900">New products, limited editions, event invitations and
+                    much more.</h3>
             </div>
-            <div class="max-w-[580px] lg:w-1/2 w-full flex ml-3 lg:ml-0">
+            <div class="max-sm:max-w-[320px] sm:max-w-[580px] lg:w-1/2 w-full flex ml-3 lg:ml-0 flex-wrap">
                 <button class="flex items-center mr-4 group">
                     <div class="bg-zinc-900 h-12 w-12 rounded-full justify-center flex items-center mr-2"><i
                             class='bx bx-home text-white text-xl'></i></div>
                     <h3 class="font-jost text-xl text-zinc-900 group-hover:text-rose-400">Private customers</h3>
                     <span
-                        class="font-jost font-bold text-sm ml-3 border-2 border-zinc-400 rounded-full w-5 h-5 flex items-center justify-center text-zinc-400">i</span>
+                        class="font-jost font-bold text-xl ml-3 flex items-center justify-center text-zinc-400"><i class='bx bx-info-circle' ></i></span>
                 </button>
-                <button class="flex items-center mr-4 group">
+                <button class="flex items-center mr-4 group tauahmales">
                     <div class="bg-zinc-900 h-12 w-12 rounded-full justify-center flex items-center mr-2"><i
                             class='bx bx-buildings text-white text-xl'></i></div>
                     <h3 class="font-jost text-xl text-zinc-900 group-hover:text-rose-400">Business customers</h3>
                     <span
-                        class="font-jost font-bold text-sm ml-3 border-2 border-zinc-400 rounded-full w-5 h-5 flex items-center justify-center text-zinc-400">i</span>
+                        class="font-jost font-bold text-xl ml-3 flex items-center justify-center text-zinc-400"><i class='bx bx-info-circle' ></i></span>
                 </button>
             </div>
         </div>
@@ -186,96 +279,160 @@
     <!-- FOOTER -->
     <div class="lg:grid-cols-3 lg:flex lg:justify-around pb-16 bg-zinc-200">
         <div class="lg:flex-col">
-            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
-                <h4 class="font-jost md:font-bold w-full py-3 border-b border-zinc-900 text-zinc-900">Products</h4>
-                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">All
-                        Products</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">New
-                        Products</button>
+            <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
+                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
+                    Products <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Bestsellers</button>
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        All Products
+                    </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Designer</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Manufacturer
-                        warranty</button>
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        New Products
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Bestsellers
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Designer
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Manufacturer warranty
+                    </button>
                 </div>
             </div>
-            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
-                <h4 class="font-jost md:font-bold w-full py-3 border-b border-zinc-900 text-zinc-900">Professionals</h4>
-                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
+            <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
+                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
+                    Professionals <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Downloads</button>
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Downloads
+                    </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Projects</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Our
-                        Clients</button>
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Projects
+                    </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Tools</button>
-                </div>
-            </div>
-        </div>
-        <div class="lg:flex-col">
-            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
-                <h4 class="font-jost md:font-bold w-full py-3 border-b border-zinc-900 text-zinc-900">About Vitra</h4>
-                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Our Clients
+                    </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Facts</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Vitra
-                        Campus</button>
-                    <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Sustainability</button>
-                    <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Magazine</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Jobs &
-                        Careers</button>
-                    <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Press</button>
-                </div>
-            </div>
-            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
-                <h4 class="font-jost md:font-bold w-full py-3 border-b border-zinc-900 text-zinc-900">Legal</h4>
-                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Distribution
-                        rights</button>
-                    <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Imprint</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Privacy
-                        Policy</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Website
-                        Terms of Use</button>
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Tools
+                    </button>
                 </div>
             </div>
         </div>
         <div class="lg:flex-col">
-            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
-                <h4 class="font-jost md:font-bold w-full py-3 border-b border-zinc-900 text-zinc-900">Contact</h4>
-                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Contact
-                        Vitra</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Find
-                        Vitra</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Vitra
-                        Companies</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Subscribe to
-                        the newsletter</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Vitra Circle
-                        Stories</button>
+            <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
+                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
+                    About Vitra <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Facts
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Vitra Campus
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Sustainability
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Magazine
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Jobs & Careers
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Press
+                    </button>
                 </div>
             </div>
-            <div class="flex-col text-center lg:w-80 lg:mt-10 flex group">
-                <h4 class="font-jost md:font-bold w-full py-3 border-b border-zinc-900 text-zinc-900">Online Shop</h4>
-                <div class="flex-col font-jost w-full lg:block hidden group-focus:block">
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Shopping
-                        Cart</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Wish
-                        list</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Payment
-                        methods</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">Shipping
-                        conditions</button>
-                    <button class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100">General
-                        Terms and Conditions of Sale</button>
+            <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
+                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
+                    Legal <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Distribution rights
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Imprint
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Privacy Policy
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Website Terms of Use
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="lg:flex-col">
+            <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
+                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
+                    Contact <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Contact Vitra
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Find Vitra
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Vitra Companies
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Subscribe to the newsletter
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Vitra Circle Stories
+                    </button>
+                </div>
+            </div>
+            <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
+                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
+                    Online Shop <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Shopping Cart
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Wish list
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Payment methods 
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Shipping conditions
+                    </button>
+                    <button
+                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        General Terms and Conditions of Sale
+                    </button>
                 </div>
             </div>
         </div>
@@ -304,7 +461,8 @@
         </div>
         <h6 class="font-jost text-sm mb-6 text-zinc-700">COPYRIGHT &copy 2024 VITRA INTERNATIONAL AG.</h6>
         <button class="font-jost text-sm text-zinc-700 hover:text-rose-400 mb-6">Cookie Settings</button>
-        <a href="#first" class="font-jost font-bold text-sm text-center text-white bg-zinc-700 hover:bg-zinc-600 duration-100 py-3 md:w-96 w-full">UP</a>
+        <a href="#first"
+            class="font-jost font-bold text-sm text-center text-white bg-zinc-700 hover:bg-zinc-600 duration-100 py-3 md:w-96 w-full">UP</a>
     </div>
     <!-- END SECOND FOOTER -->
 
@@ -312,6 +470,37 @@
     <!-- SCRIPT -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbarToggle = document.getElementById("navbarToggle");
+            const navbarLinks = document.getElementById("navbarLinks");
+
+            navbarToggle.addEventListener("click", function () {
+                navbarLinks.classList.toggle("show");
+            });
+
+            navbarLinks.classList.remove("show");
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const footerToggleButtons = document.querySelectorAll(
+                ".font-jost.md\\:font-bold.flex.py-3.border-b.border-zinc-900.text-zinc-900.md\\:block.mx-3"
+                );
+
+            footerToggleButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const footerLinks = button.nextElementSibling;
+
+                    button.classList.toggle("mendokusai");
+
+                    if (footerLinks) {
+                        footerLinks.classList.toggle("mendokusai");
+                    }
+                });
+            });
+        });
+    </script>
     <!-- END SCRIPT -->
 
 </body>
