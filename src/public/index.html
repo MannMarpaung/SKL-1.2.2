@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="https://www.vitra.com/favicons/apple-touch-icon.png" type="image/x-icon">
 
     <!-- CSS Link -->
-    <link rel="stylesheet" href="/src/output.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Font Link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +19,29 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <style>
+        html,
+        body {
+            scroll-behavior: smooth;
+        }
+
+        #scrollToTopBtn {
+            opacity: 0;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transform: translateY(100%);
+        }
+
+        #scrollToTopBtn.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #scrollToTopBtn.hide {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
         @media screen and (max-width: 1024px) {
-            .show {
+            .ppp {
                 display: flex;
             }
 
@@ -28,6 +49,7 @@
                 display: block;
             }
         }
+
         @media screen and (max-width: 639px) {
             .tauahmales {
                 margin-top: 1.5rem;
@@ -36,89 +58,141 @@
     </style>
 </head>
 
-<body>
+<script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+            '(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
+
+<body class="bg-white dark:bg-zinc-900">
 
     <!-- NAVBAR -->
     <nav>
-        <div class="lg:h-8 h-20 bg-white justify-between items-center lg:justify-end lg:items-end flex">
-            <button class="font-jost text-zinc-400 hover:text-rose-400 mx-3 duration-100 hidden lg:flex items-center">
+        <div
+            class="lg:h-8 h-20 bg-white dark:bg-zinc-900 justify-between items-center lg:justify-end lg:items-end flex">
+            <button
+                class="font-jost text-zinc-400 dark:text-zinc-500 hover:text-rose-400 dark:hover:text-rose-400 mx-3 duration-100 hidden lg:flex items-center">
                 <i class='bx bx-map text-lg mr-1'></i>Find Vitra
             </button>
-            <button class="font-jost text-zinc-400 hover:text-rose-400 mx-3 duration-100 hidden lg:flex">
+            <button
+                class="font-jost text-zinc-400 dark:text-zinc-500 hover:text-rose-400 dark:hover:text-rose-400 mx-3 duration-100 hidden lg:flex">
                 Contact
             </button>
             <div class="w-28 flex lg:hidden">
-                <a href="#" id="navbarToggle" class="text-3xl text-zinc-800 ml-2"><i
+                <a href="#" id="navbarToggle" class="text-3xl text-zinc-800 dark:text-zinc-100 ml-2"><i
                         class='bx bx-menu-alt-left'></i></a>
             </div>
-            <a href="#" class="flex lg:hidden">
+            <a href="#" class="flex lg:hidden dark:hidden">
                 <img class="w-24"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_vitra_black.svg/591px-Logo_vitra_black.svg.png?20141205055208"
                     alt="">
             </a>
+            <a href="#" class="dark:flex dark:lg:hidden hidden">
+                <img class="w-24" src="/src/public/img/vitra-logo-white.png" alt="">
+            </a>
             <div class="w-28 flex lg:hidden">
-                <button class="text-2xl mx-3 text-zinc-800 hover:text-rose-400 duration-100">
+                <button
+                    class="text-2xl mx-3 text-zinc-800 dark:text-zinc-100 hover:text-rose-400 dark:hover:text-rose-400 duration-100">
                     <i class='bx bx-search'></i>
                 </button>
-                <button class="text-2xl mx-3 text-zinc-800 hover:text-rose-400 duration-100">
+                <button
+                    class="text-2xl mx-3 text-zinc-800 dark:text-zinc-100 hover:text-rose-400 dark:hover:text-rose-400 duration-100">
                     <i class='bx bx-cart'></i>
                 </button>
             </div>
         </div>
-        <div id="navbarLinks" class="lg:h-14 bg-white lg:flex lg:justify-between hidden show flex-col lg:flex-row">
+        <div id="navbarLinks"
+            class="lg:h-14 bg-white dark:bg-zinc-900 lg:flex lg:justify-between hidden ppp flex-col lg:flex-row max-lg:absolute max-lg:w-full z-50">
             <div class="flex lg:items-end lg:mb-3 mb-12 lg:ml-2">
-                <a href="#" class="mb-1 hidden lg:flex">
+                <a href="#" class="mb-1 hidden lg:flex dark:hidden">
                     <img class="w-24 mr-2"
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_vitra_black.svg/591px-Logo_vitra_black.svg.png?20141205055208"
                         alt="">
                 </a>
+                <a href="#" class="mb-1 hidden dark:lg:flex dark:hidden">
+                    <img class="w-24 mr-2" src="/src/public/img/vitra-logo-white.png" alt="">
+                </a>
                 <div
-                    class="text-zinc-800 font-jost xl:text-lg lg:text-base text-xl flex lg:items-end lg:flex-row flex-col w-full lg:w-auto">
-                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                    class="text-zinc-800 dark:text-zinc-100 font-jost xl:text-lg lg:text-base text-xl flex lg:items-end lg:flex-row flex-col w-full lg:w-auto">
+                    <button
+                        class="px-4 py-3 lg:py-0 hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex items-center justify-between">
                         Products<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
                     </button>
-                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                    <button
+                        class="px-4 py-3 lg:py-0 hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex items-center justify-between">
                         Inspirations<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
                     </button>
-                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                    <button
+                        class="px-4 py-3 lg:py-0 hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex items-center justify-between">
                         Magazine<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
                     </button>
-                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                    <button
+                        class="px-4 py-3 lg:py-0 hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex items-center justify-between">
                         Vitra Campus<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
                     </button>
-                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                    <button
+                        class="px-4 py-3 lg:py-0 hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex items-center justify-between">
                         About Vitra<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
                     </button>
-                    <button class="px-4 py-3 lg:py-0 hover:text-rose-400 duration-100 flex items-center justify-between">
+                    <button
+                        class="px-4 py-3 lg:py-0 hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex items-center justify-between">
                         Professionals<span class="flex lg:hidden text-2xl"><i class='bx bx-right-arrow-alt'></i></span>
                     </button>
                 </div>
             </div>
             <div class="flex lg:items-end lg:mb-3 mb-10 flex-col items-start lg:flex-row">
-                <button class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 lg:flex hidden">
+                <button
+                    class="text-2xl mx-3 text-zinc-900 dark:text-white hover:text-rose-400 dark:hover:text-rose-400 duration-100 lg:flex hidden">
                     <i class='bx bx-search'></i>
                 </button>
-                <button class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2">
+                <button
+                    class="text-2xl mx-3 text-zinc-900 dark:text-white hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex lg:my-0 my-2">
                     <i class='bx bx-user lg:mr-0 mr-4'></i><span class="font-jost text-xl flex lg:hidden">Account</span>
                 </button>
-                <button class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 lg:flex hidden">
+                <button
+                    class="text-2xl mx-3 text-zinc-900 dark:text-white hover:text-rose-400 dark:hover:text-rose-400 duration-100 lg:flex hidden">
                     <i class='bx bx-cart'></i>
                 </button>
                 <button
-                    class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
+                    class="text-2xl mx-3 text-zinc-900 dark:text-white hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
                     <i class='bx bx-heart mr-4'></i><span class="font-jost text-xl flex lg:hidden">Wishlist</span>
                 </button>
-                <button class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2">
-                    <i class='bx bx-flag lg:mr-0 mr-4'></i><span class="font-jost text-xl flex lg:hidden">United
+                <button
+                    class="mx-3 lg:w-7 lg:h-7 lg:overflow-hidden text-zinc-900 dark:text-white hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex lg:items-center lg:justify-center lg:my-0 my-2">
+                    <img class="lg:mr-0 mr-4 w-6" src="/src/public/img/US-flag-circle.png" alt=""><span
+                        class="font-jost text-xl flex lg:hidden">United
                         States</span>
                 </button>
                 <button
-                    class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
+                    class="text-2xl mx-3 text-zinc-900 dark:text-white hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
                     <i class='bx bx-map mr-4'></i><span class="font-jost text-xl flex lg:hidden">Find Vitra</span>
                 </button>
                 <button
-                    class="text-2xl mx-3 text-zinc-900 hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
+                    class="text-2xl mx-3 text-zinc-900 dark:text-white hover:text-rose-400 dark:hover:text-rose-400 duration-100 flex lg:my-0 my-2 lg:hidden">
                     <i class='bx bx-phone-call mr-4'></i><span class="font-jost text-xl flex lg:hidden">Contact</span>
+                </button>
+                <button id="theme-toggle" type="button"
+                    class="text-zinc-900 flex items-center dark:text-white hover:text-rose-400 dark:hover:text-rose-400 duration-100 mx-3 my-1">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 mr-4 lg:mr-0" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 mr-4 lg:mr-0" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="lg:hidden block dark:hidden font-jost text-zinc-900 text-xl">
+                        Dark Mode
+                    </span>
+                    <span class="hidden dark:lg:hidden dark:block font-jost text-white text-xl">
+                        Light Mode
+                    </span>
                 </button>
             </div>
         </div>
@@ -126,7 +200,8 @@
     <!-- END NAVBAR -->
 
     <!-- FIRST -->
-    <div id="first" class="relative justify-center lg:max-h-[75vh] items-center flex flex-col mb-16 group">
+    <div id="first"
+        class="relative justify-center lg:max-h-[75vh] items-center flex flex-col mb-16 group z-30 bg-white dark:bg-zinc-900">
         <div class="overflow-hidden flex lg:h-full w-full justify-center items-center">
             <img class="w-full relative max-h-full"
                 src="https://static.vitra.com/media-resized/vre2fWzkgEsDWV-_9xnhT_d1LRJKAz2xls4BjzOIv6Y/fill/1440/0/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0LzgzNzQ4MDIvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83ODA4MTAzMC5qcGc.jpg"
@@ -135,15 +210,15 @@
         <div
             class="lg:bg-zinc-900 lg:hover:bg-opacity-40 lg:bg-opacity-0 duration-700 lg:absolute h-full w-full justify-center flex items-center flex-col">
             <h1
-                class="font-jost lg:text-5xl text-4xl font-light text-center lg:text-white text-zinc-900 mb-7 mt-6 lg:translate-y-16 lg:group-hover:translate-y-0 duration-700">
+                class="font-jost lg:text-5xl text-4xl font-light text-center lg:text-white text-zinc-900 dark:text-white mb-7 mt-6 lg:translate-y-16 lg:group-hover:translate-y-0 duration-700">
                 ACX</h1>
             <div class="lg:w-[45rem] flex-col items-center flex justify-center w-full px-5 duration-700">
                 <p
-                    class="mb-10 lg:translate-y-20 lg:group-hover:translate-y-0 font-jost lg:text-xl text-center lg:text-opacity-0 lg:group-hover:text-opacity-100 duration-700 lg:text-white text-zinc-900">
+                    class="mb-10 lg:translate-y-20 lg:group-hover:translate-y-0 font-jost lg:text-xl text-center lg:text-opacity-0 dark:text-opacity-0 lg:group-hover:text-opacity-100 duration-700 lg:text-white text-zinc-900 dark:text-white">
                     ACX is the tenthoffice swivel chair that Vitra has developed in collaboration with Italian designer
                     Antonio Citterio</p>
                 <button
-                    class="font-jost lg:translate-y-10 lg:group-hover:translate-y-0 text-center py-3 lg:w-60 w-full lg:text-zinc-900 text-white bg-zinc-900 lg:bg-white hover:bg-zinc-500 lg:hover:bg-zinc-300 lg:opacity-0 lg:group-hover:opacity-100 duration-700">DISCOVER
+                    class="font-jost lg:translate-y-10 lg:group-hover:translate-y-0 text-center py-3 lg:w-60 w-full lg:text-zinc-900 text-white dark:text-zinc-900 bg-zinc-900 dark:bg-white lg:bg-white hover:bg-zinc-500 dark:hover:bg-zinc-400 lg:hover:bg-zinc-300 lg:opacity-0 lg:group-hover:opacity-100 duration-700">DISCOVER
                     MORE</button>
             </div>
         </div>
@@ -151,17 +226,20 @@
     <!-- END FIRST -->
 
     <!-- SECOND -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 lg:px-2 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 lg:px-2 mb-16 bg-white dark:bg-zinc-900">
         <div class="group cursor-pointer">
             <div class="overflow-hidden group/item">
                 <img class="group-hover/item:scale-105 duration-500"
                     src="https://static.vitra.com/media-resized/Oaa9o0UNMeiQt00VsvEfSCafj4lNJIUiJ-vvdFR0hmU/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0LzgzMzMzNzEvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83ODA1NDc5NC5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
+            <h3
+                class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900 dark:text-white">
                 Eames classics
                 in new colours and materials</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">Eames
+            <h4
+                class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400 dark:text-zinc-500">
+                Eames
                 Special
                 Collection 2023</h4>
         </div>
@@ -171,10 +249,13 @@
                     src="https://static.vitra.com/media-resized/hNGm_-XhudmSjrlbGt_HUq_eJGR19aEgJo5qXgy6BHQ/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg2MzE3NjYvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MDkzNjA3Mi5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
+            <h3
+                class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900 dark:text-white">
                 Timeless
                 Elegance with Structual Ingenuity</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">Chaise
+            <h4
+                class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400 dark:text-zinc-500">
+                Chaise
                 Tout Bois
             </h4>
         </div>
@@ -184,10 +265,14 @@
                     src="https://static.vitra.com/media-resized/lEgQdfu6Atx_12SpdLCB9aQIak9cHQ2lenF4GHgPboA/fill/1440/811/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg3NjU1MTAvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjAxMjA2MC5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">A
+            <h3
+                class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900 dark:text-white">
+                A
                 studio visit
                 with Tsuyoshi Tane</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">Magazine
+            <h4
+                class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400 dark:text-zinc-500">
+                Magazine
             </h4>
         </div>
         <div class="group cursor-pointer">
@@ -196,9 +281,12 @@
                     src="https://static.vitra.com/media-resized/VM6juw-VDJyX1RiYY4PdsISTuXUDK-d4PiZfUYhbQI4/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg4Mzk4NzUvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjM0MzQyOC5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
+            <h3
+                class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900 dark:text-white">
                 Adaptable design for dynamic wokspaces</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">Comma
+            <h4
+                class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400 dark:text-zinc-500">
+                Comma
             </h4>
         </div>
     </div>
@@ -212,26 +300,28 @@
                 alt="">
         </div>
         <div class="absolute flex flex-col justify-center items-center">
-            <h1 class="font-jost xl:text-5xl text-4xl font-light text-center text-white mb-4">Prismatic Table</h1>
+            <h1 class="font-jost lg:text-5xl text-4xl font-light text-center text-white mb-4">Prismatic Table</h1>
             <button
-                class="font-jost text-center lg:hover:bg-white hover:text-zinc-900 text-white py-3 mt-4 xl:w-60 w-40 border-y-2 border-white duration-100">DISCOVER
+                class="font-jost text-center lg:hover:bg-white hover:text-zinc-900 text-white py-3 mt-4 lg:w-60 w-40 border-y-2 border-white duration-100">DISCOVER
                 NOW</button>
         </div>
     </div>
     <!-- END THIRD -->
 
     <!-- FOURTH -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 lg:px-2 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 lg:px-2 mb-16 bg-white dark:bg-zinc-900">
         <div class="group cursor-pointer">
             <div class="overflow-hidden group/item">
                 <img class="group-hover/item:scale-105 duration-500"
                     src="https://static.vitra.com/media-resized/nc0q2DmA1MuGiANoqnVG7f9-SJNzUJJmGz95ZePyLfs/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzc0MTcwNTQvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC83NzM1NTIwNC5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
+            <h3
+                class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900 dark:text-white">
                 No matter which industry and no matter where in the world
             </h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">
+            <h4
+                class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400 dark:text-zinc-500">
                 Our Client </h4>
         </div>
         <div class="group cursor-pointer">
@@ -240,36 +330,43 @@
                     src="https://static.vitra.com/media-resized/KIVcbMcDG_wkcTQw0j73hsr2OWQEpR2F0MeyknXJHuU/fill/1440/810/ce/0/aHR0cHM6Ly9zdGF0aWMudml0cmEuY29tL21lZGlhL2Fzc2V0Lzg4NDM0MzAvc3RvcmFnZS92X2Z1bGxibGVlZF8xNDQweC84MjM1MTg0My5qcGc.jpg"
                     alt="">
             </div>
-            <h3 class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900">
+            <h3
+                class="font-jost text-center mt-1 -mb-1 group-hover:text-rose-400 text-lg duration-150 text-zinc-900 dark:text-white">
                 A case for classics</h3>
-            <h4 class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400">
+            <h4
+                class="font-jost text-center mb-2 group-hover:text-rose-400 text-lg duration-150 text-zinc-400 dark:text-zinc-500">
                 Professionals</h4>
         </div>
     </div>
     <!-- END FOURTH -->
 
     <!-- FIFTH -->
-    <div class="flex bg-zinc-100">
+    <div class="flex bg-zinc-100 dark:bg-zinc-800">
         <div class="flex lg:flex-row flex-col w-full justify-center flex-wrap my-20">
             <div class="max-sm:max-w-[320px] sm:max-w-[580px] lg:w-1/2 w-full mb-4 ml-3 lg:ml-0">
-                <h2 class="font-jost text-2xl ml-2 text-zinc-900">Vitra Newsletter</h2>
-                <h3 class="font-jost text-lg ml-2 text-zinc-900">New products, limited editions, event invitations and
+                <h2 class="font-jost text-2xl ml-2 text-zinc-900 dark:text-white">Vitra Newsletter</h2>
+                <h3 class="font-jost text-lg ml-2 text-zinc-900 dark:text-white">New products, limited editions, event
+                    invitations and
                     much more.</h3>
             </div>
             <div class="max-sm:max-w-[320px] sm:max-w-[580px] lg:w-1/2 w-full flex ml-3 lg:ml-0 flex-wrap">
                 <button class="flex items-center mr-4 group">
-                    <div class="bg-zinc-900 h-12 w-12 rounded-full justify-center flex items-center mr-2"><i
-                            class='bx bx-home text-white text-xl'></i></div>
-                    <h3 class="font-jost text-xl text-zinc-900 group-hover:text-rose-400">Private customers</h3>
+                    <div class="bg-zinc-900 dark:bg-white h-12 w-12 rounded-full justify-center flex items-center mr-2">
+                        <i class='bx bx-home text-white dark:text-zinc-900 text-xl'></i></div>
+                    <h3 class="font-jost text-xl text-zinc-900 dark:text-white group-hover:text-rose-400">Private
+                        customers</h3>
                     <span
-                        class="font-jost font-bold text-xl ml-3 flex items-center justify-center text-zinc-400"><i class='bx bx-info-circle' ></i></span>
+                        class="font-jost font-bold text-xl ml-3 flex items-center justify-center text-zinc-400 dark:text-zinc-500"><i
+                            class='bx bx-info-circle'></i></span>
                 </button>
                 <button class="flex items-center mr-4 group tauahmales">
-                    <div class="bg-zinc-900 h-12 w-12 rounded-full justify-center flex items-center mr-2"><i
-                            class='bx bx-buildings text-white text-xl'></i></div>
-                    <h3 class="font-jost text-xl text-zinc-900 group-hover:text-rose-400">Business customers</h3>
+                    <div class="bg-zinc-900 dark:bg-white h-12 w-12 rounded-full justify-center flex items-center mr-2">
+                        <i class='bx bx-buildings text-white dark:text-zinc-900 text-xl'></i></div>
+                    <h3 class="font-jost text-xl text-zinc-900 dark:text-white group-hover:text-rose-400">Business
+                        customers</h3>
                     <span
-                        class="font-jost font-bold text-xl ml-3 flex items-center justify-center text-zinc-400"><i class='bx bx-info-circle' ></i></span>
+                        class="font-jost font-bold text-xl ml-3 flex items-center justify-center text-zinc-400 dark:text-zinc-500"><i
+                            class='bx bx-info-circle'></i></span>
                 </button>
             </div>
         </div>
@@ -277,52 +374,54 @@
     <!-- END FIFTH -->
 
     <!-- FOOTER -->
-    <div class="lg:grid-cols-3 lg:flex lg:justify-around pb-16 bg-zinc-200">
+    <div class="lg:grid-cols-3 lg:flex lg:justify-around pb-16 bg-zinc-200 dark:bg-zinc-700">
         <div class="lg:flex-col">
             <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
-                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
-                    Products <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <h4
+                    class="font-jost md:font-bold flex py-3 border-b border-zinc-900 dark:border-white text-zinc-900 dark:text-white md:block mx-3">
+                    Products <span class="md:hidden text-lg"><i class='bx bx-chevron-down '></i></span></h4>
                 <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         All Products
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         New Products
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Bestsellers
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Designer
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Manufacturer warranty
                     </button>
                 </div>
             </div>
             <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
-                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
-                    Professionals <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <h4
+                    class="font-jost md:font-bold flex py-3 border-b border-zinc-900 dark:border-white text-zinc-900 dark:text-white md:block mx-3">
+                    Professionals <span class="md:hidden text-lg"><i class='bx bx-chevron-down '></i></span></h4>
                 <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Downloads
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Projects
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Our Clients
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Tools
                     </button>
                 </div>
@@ -330,53 +429,55 @@
         </div>
         <div class="lg:flex-col">
             <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
-                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
-                    About Vitra <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <h4
+                    class="font-jost md:font-bold flex py-3 border-b border-zinc-900 dark:border-white text-zinc-900 dark:text-white md:block mx-3">
+                    About Vitra <span class="md:hidden text-lg"><i class='bx bx-chevron-down '></i></span></h4>
                 <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Facts
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Vitra Campus
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Sustainability
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Magazine
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Jobs & Careers
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Press
                     </button>
                 </div>
             </div>
             <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
-                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
-                    Legal <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <h4
+                    class="font-jost md:font-bold flex py-3 border-b border-zinc-900 dark:border-white text-zinc-900 dark:text-white md:block mx-3">
+                    Legal <span class="md:hidden text-lg"><i class='bx bx-chevron-down '></i></span></h4>
                 <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Distribution rights
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Imprint
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Privacy Policy
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Website Terms of Use
                     </button>
                 </div>
@@ -384,53 +485,55 @@
         </div>
         <div class="lg:flex-col">
             <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
-                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
-                    Contact <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <h4
+                    class="font-jost md:font-bold flex py-3 border-b border-zinc-900 dark:border-white text-zinc-900 dark:text-white md:block mx-3">
+                    Contact <span class="md:hidden text-lg"><i class='bx bx-chevron-down '></i></span></h4>
                 <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Contact Vitra
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Find Vitra
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Vitra Companies
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Subscribe to the newsletter
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Vitra Circle Stories
                     </button>
                 </div>
             </div>
             <div class="flex-col md:text-center lg:w-80 lg:mt-10 flex">
-                <h4 class="font-jost md:font-bold flex py-3 border-b border-zinc-900 text-zinc-900 md:block mx-3">
-                    Online Shop <span class="md:hidden text-lg"><i class='bx bx-chevron-down ' ></i></span></h4>
+                <h4
+                    class="font-jost md:font-bold flex py-3 border-b border-zinc-900 dark:border-white text-zinc-900 dark:text-white md:block mx-3">
+                    Online Shop <span class="md:hidden text-lg"><i class='bx bx-chevron-down '></i></span></h4>
                 <div class="footerLinks flex-col font-jost w-full lg:flex hidden">
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Shopping Cart
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Wish list
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
-                        Payment methods 
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        Payment methods
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         Shipping conditions
                     </button>
                     <button
-                        class="py-3 border-t-2 border-zinc-300 text-zinc-900 w-full hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
+                        class="py-3 border-t-2 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white w-full hover:text-rose-400 dark:hover:text-rose-400 duration-100 max-md:flex max-md:ml-3 max-md:font-thin">
                         General Terms and Conditions of Sale
                     </button>
                 </div>
@@ -440,31 +543,48 @@
     <!-- END FOOTER -->
 
     <!-- SECOND FOOTER -->
-    <div class="flex justify-center items-center flex-col bg-zinc-200 md:pb-0 pb-14 px-5">
+    <div class="flex justify-center items-center flex-col bg-zinc-200 dark:bg-zinc-700 md:pb-0 pb-14 px-5">
         <div class="flex flex-wrap justify-center mb-10">
             <div>
-                <button class="w-16 h-10 text-3xl text-zinc-800 hover:text-rose-400 cursor-pointer"><i
+                <button
+                    class="w-16 h-10 text-3xl text-zinc-800 dark:text-zinc-100 hover:text-rose-400 dark:hover:text-rose-400 cursor-pointer"><i
                         class='bx bxl-youtube'></i></button>
-                <button class="w-16 h-10 text-3xl text-zinc-800 hover:text-rose-400 cursor-pointer"><i
+                <button
+                    class="w-16 h-10 text-3xl text-zinc-800 dark:text-zinc-100 hover:text-rose-400 dark:hover:text-rose-400 cursor-pointer"><i
                         class='bx bxl-twitter'></i></button>
-                <button class="w-16 h-10 text-3xl text-zinc-800 hover:text-rose-400 cursor-pointer"><i
+                <button
+                    class="w-16 h-10 text-3xl text-zinc-800 dark:text-zinc-100 hover:text-rose-400 dark:hover:text-rose-400 cursor-pointer"><i
                         class='bx bxl-facebook-square'></i></button>
             </div>
             <div>
-                <button class="w-16 h-10 text-3xl text-zinc-800 hover:text-rose-400 cursor-pointer"><i
+                <button
+                    class="w-16 h-10 text-3xl text-zinc-800 dark:text-zinc-100 hover:text-rose-400 dark:hover:text-rose-400 cursor-pointer"><i
                         class='bx bxl-pinterest'></i></button>
-                <button class="w-16 h-10 text-3xl text-zinc-800 hover:text-rose-400 cursor-pointer"><i
+                <button
+                    class="w-16 h-10 text-3xl text-zinc-800 dark:text-zinc-100 hover:text-rose-400 dark:hover:text-rose-400 cursor-pointer"><i
                         class='bx bxl-instagram'></i></button>
-                <button class="w-16 h-10 text-3xl text-zinc-800 hover:text-rose-400 cursor-pointer"><i
+                <button
+                    class="w-16 h-10 text-3xl text-zinc-800 dark:text-zinc-100 hover:text-rose-400 dark:hover:text-rose-400 cursor-pointer"><i
                         class='bx bxl-linkedin-square'></i></button>
             </div>
         </div>
-        <h6 class="font-jost text-sm mb-6 text-zinc-700">COPYRIGHT &copy 2024 VITRA INTERNATIONAL AG.</h6>
-        <button class="font-jost text-sm text-zinc-700 hover:text-rose-400 mb-6">Cookie Settings</button>
+        <h6 class="font-jost text-sm mb-6 text-zinc-700 dark:text-zinc-200">COPYRIGHT &copy 2024 VITRA INTERNATIONAL AG.
+        </h6>
+        <button
+            class="font-jost text-sm text-zinc-700 dark:text-zinc-200 hover:text-rose-400 dark:hover:text-rose-400 mb-6">Cookie
+            Settings</button>
         <a href="#first"
-            class="font-jost font-bold text-sm text-center text-white bg-zinc-700 hover:bg-zinc-600 duration-100 py-3 md:w-96 w-full">UP</a>
+            class="font-jost font-bold text-sm text-center text-white dark:text-zinc-900 bg-zinc-700 dark:bg-zinc-200 hover:bg-zinc-500 dark:hover:bg-zinc-400 duration-100 py-3 md:w-96 w-full">UP</a>
     </div>
     <!-- END SECOND FOOTER -->
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="justify-center flex">
+        <button id="scrollToTopBtn"
+            class="py-2 lg:px-2 max-lg:w-[95%] fixed text-4xl bottom-5 lg:right-5 bg-zinc-800 dark:bg-zinc-100 text-white dark:text-zinc-900 cursor-pointer flex justify-center items-center"><i
+                class='bx bx-chevron-up'></i><span class="font-jost text-xl lg:hidden block">BACK TO TOP</span></button>
+    </div>
+    <!-- END SCROLL TO TOP BUTTON -->
 
 
     <!-- SCRIPT -->
@@ -476,17 +596,17 @@
             const navbarLinks = document.getElementById("navbarLinks");
 
             navbarToggle.addEventListener("click", function () {
-                navbarLinks.classList.toggle("show");
+                navbarLinks.classList.toggle("ppp");
             });
 
-            navbarLinks.classList.remove("show");
+            navbarLinks.classList.remove("ppp");
         });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const footerToggleButtons = document.querySelectorAll(
                 ".font-jost.md\\:font-bold.flex.py-3.border-b.border-zinc-900.text-zinc-900.md\\:block.mx-3"
-                );
+            );
 
             footerToggleButtons.forEach(function (button) {
                 button.addEventListener("click", function () {
@@ -499,6 +619,76 @@
                     }
                 });
             });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            var lastScrollTop = 0;
+
+            window.onscroll = function () {
+                var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+
+                if (currentScrollTop < lastScrollTop && currentScrollTop > window.innerHeight / 2) {
+                    if (!scrollToTopBtn.classList.contains("show")) {
+                        scrollToTopBtn.classList.remove("hide");
+                        scrollToTopBtn.classList.add("show");
+                    }
+                } else {
+                    if (!scrollToTopBtn.classList.contains("hide")) {
+                        scrollToTopBtn.classList.remove("show");
+                        scrollToTopBtn.classList.add("hide");
+                    }
+                }
+
+                lastScrollTop = currentScrollTop;
+            };
+
+            scrollToTopBtn.addEventListener("click", function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
+    <script>
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        var themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function () {
+
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+
         });
     </script>
     <!-- END SCRIPT -->
